@@ -198,7 +198,7 @@ main = do
                     . transpose
                     . map lines
                     . map (\(i,b) -> "(" ++ show i ++ "): \n" ++ printBoard b) 
-                    . zip [1..]
+                    . zip [1 :: Integer ..]
 
     gameLoop P1 emptyBoard
 
