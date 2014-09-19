@@ -7,8 +7,7 @@ module Assignment3 where
 import Control.Arrow ((&&&))
 import Data.Function (on)
 import Data.List     (group, sort, sortBy)
-import Data.Maybe    (isJust, fromJust)
-import Data.Set      (Set, empty, insert, size)
+import Data.Set      (Set, empty, insert)
 
 -- | Containers
 
