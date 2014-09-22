@@ -2,11 +2,12 @@
 
 module Assignment4 where
 
-import Control.Monad (replicateM)
-import Data.Foldable (Foldable(..))
-import Data.Monoid   (Monoid(..), Sum(..), (<>))
-import Data.Ratio    ((%))
-import System.Random (Random(random, randomR), getStdRandom)
+import Control.Applicative (Applicative(..))
+import Control.Monad       (ap, liftM, replicateM)
+import Data.Foldable       (Foldable(..))
+import Data.Monoid         (Monoid(..), Sum(..), (<>))
+import Data.Ratio          ((%))
+import System.Random       (Random(random, randomR), getStdRandom)
 
 -- | A Game of Chance
 
@@ -59,6 +60,13 @@ data DecisionTree a
     = Result a
     | Decision [DecisionTree a]
     deriving (Eq, Show)
+
+instance Functor DecisionTree where
+    fmap = liftM
+ 
+instance Applicative DecisionTree where
+    pure  = return
+    (<*>) = ap
 
 -- Exercise 5
 
@@ -124,6 +132,13 @@ onePut    = undefined
 newtype State' s a = State' { runState' :: (s, Counts) -> (a, s, Counts) }
 
 -- Exercise 10
+
+instance Functor (State' s) where
+    fmap = liftM
+ 
+instance Applicative (State' s) where
+    pure  = return
+    (<*>) = ap
 
 instance Monad (State' s) where
 
