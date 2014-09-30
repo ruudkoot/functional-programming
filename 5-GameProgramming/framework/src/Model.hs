@@ -13,7 +13,7 @@ data World = World {
         rotateAction     :: RotateAction,
         movementAction   :: MovementAction,
         shootAction      :: ShootAction
-        -- TODO: add more field here!
+        -- TODO: add more fields here!
     }
     
 data RotateAction   = NoRotation | RotateLeft | RotateRight
