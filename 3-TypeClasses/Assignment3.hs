@@ -6,7 +6,7 @@ module Assignment3 where
 
 import Control.Arrow ((&&&))
 import Data.Function (on)
-import Data.List     (group, sort, sortBy)
+import Data.List     (foldl', group, sort, sortBy)
 import Data.Set      (Set, empty, insert)
 
 -- | Containers
