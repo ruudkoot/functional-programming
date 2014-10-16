@@ -61,12 +61,12 @@ data DecisionTree a
     | Decision [DecisionTree a]
     deriving (Eq, Show)
 
-instance Functor DecisionTree where
-    fmap = liftM
+instance Functor DecisionTree where     -- All monads are functors. You don't
+    fmap = liftM                        -- have to make use of this fact.
  
-instance Applicative DecisionTree where
-    pure  = return
-    (<*>) = ap
+instance Applicative DecisionTree where -- All monads are "applicative functors"
+    pure  = return                      -- (not treated in this course). You
+    (<*>) = ap                          -- don't have to make use of this fact.
 
 -- Exercise 5
 
@@ -133,12 +133,12 @@ newtype State' s a = State' { runState' :: (s, Counts) -> (a, s, Counts) }
 
 -- Exercise 10
 
-instance Functor (State' s) where
-    fmap = liftM
+instance Functor (State' s) where       -- All monads are functors. You don't
+    fmap = liftM                        -- have to make use of this fact.
  
-instance Applicative (State' s) where
-    pure  = return
-    (<*>) = ap
+instance Applicative (State' s) where   -- All monads are "applicative functors"
+    pure  = return                      -- (not treated in this course). You
+    (<*>) = ap                          -- don't have to make use of this fact.
 
 instance Monad (State' s) where
 
